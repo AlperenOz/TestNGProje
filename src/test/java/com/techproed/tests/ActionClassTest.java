@@ -35,7 +35,6 @@ public class ActionClassTest extends TestBase {
      */
 
 
-
     @Test
     public void rightClick(){
         driver.get("http://the-internet.herokuapp.com/context_menu");
@@ -71,7 +70,7 @@ public class ActionClassTest extends TestBase {
         act.moveToElement(signInHidden).perform();
     }
     @Test
-    public void upDown(){
+    public void upDown() {
         driver.get("http://amazon.com");
 
         Actions act = new Actions(driver);
@@ -87,10 +86,4 @@ public class ActionClassTest extends TestBase {
         act.sendKeys(Keys.PAGE_UP).perform();//bir tik yukari cikar
         act.sendKeys(Keys.ARROW_UP).perform();//klavyedeki yukari oka basar
     }
-
-
-
-
-
-
 }

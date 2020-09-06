@@ -43,5 +43,6 @@ public class WindowHandleTest extends TestBase {
         sa.assertTrue((driver.getCurrentUrl().contains("new")));//fail
 
         sa.assertAll();
+
     }
 }
