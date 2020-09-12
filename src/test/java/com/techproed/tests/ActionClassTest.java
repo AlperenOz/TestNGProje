@@ -70,7 +70,7 @@ public class ActionClassTest extends TestBase {
         act.moveToElement(signInHidden).perform();
     }
     @Test
-    public void upDown() {
+    public void upDownPage() {
         driver.get("http://amazon.com");
 
         Actions act = new Actions(driver);
@@ -86,4 +86,37 @@ public class ActionClassTest extends TestBase {
         act.sendKeys(Keys.PAGE_UP).perform();//bir tik yukari cikar
         act.sendKeys(Keys.ARROW_UP).perform();//klavyedeki yukari oka basar
     }
+    @Test
+    public void keyUpDown(){
+        driver.get("http://google.com");
+
+        WebElement searchBox = driver.findElement(By.name("q"));
+
+        //Keys.SHIFT tusa basar ama birakmaz, bizim onu birakmamiz lazim
+        //searchBox.sendKeys(Keys.SHIFT + "hello google");
+        //shift e basili tuttu
+
+        Actions act = new Actions(driver);
+        act.moveToElement(searchBox).click()
+                //shift e basili
+                .keyDown(Keys.SHIFT).sendKeys("hey there")
+                //shift ten kaldirildi
+                .keyUp(Keys.SHIFT).sendKeys(" how are you doin?")
+                .perform();
+    }
+    @Test
+    public void dragnDrop(){
+        driver.get("http://google.com");
+        WebElement googleLogo = driver.findElement(By.id("hplogo"));
+        WebElement searchBox = driver.findElement(By.name("q"));
+
+        Actions act = new Actions(driver);
+        //logo yu al searchbox a tasi
+        act.dragAndDrop(googleLogo,searchBox).perform();
+        //google izin vermedi ama normalde olur
+
+    }
+
+
+
 }
